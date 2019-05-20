@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" href="./index.css" type="text/css" />
+    <script type="text/javascript" src="./lib/tick42-glue-4.3.6.js"></script>
+    <title>Window.Open demo</title>
+    <script>
+      globalChildWindowInstance = null;
+
+      Glue()
+      .then((glue) => {
+          window.glue = glue;
+      })
+      .catch(console.error); 
+
+      function openWindow(windowIndex) {
+        const url = windowIndex === 1? "https://www.glue42.com" : "https://docs.glue42.com";
+        if (window.globalChildWindowInstance) {
+          window.globalChildWindowInstance.navigate(url);
+        } else {
+          const onSuccess = (win) => { window.globalChildWindowInstance = win; };
+          glue.windows.open("myWin", url, {}, onSuccess);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="note">
+      <p>This page demonstrates the window opening capabilities
+      of Glue42. Different buttons will open the same window, but with different
+      URLs.</p>
+      <p>Note: to run the demo, Glue42 Desktop must be started.</p>
+    </div>
+    <div>
+      <button onclick="javascript:openWindow(1);">Glue42 Main Site</button>
+      <button onclick="javascript:openWindow(2);">Glue42 Documentation</button>
+    </div>
+  </body>
+</html>

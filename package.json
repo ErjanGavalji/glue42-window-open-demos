@@ -1,0 +1,16 @@
+{
+  "name": "glue42-window-open-demos",
+  "version": "0.0.1",
+  "description": "window.open demos with the Glue42 platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "glue42;",
+    "window.open;",
+    "demo"
+  ],
+  "author": "Erjan Gavalji <erjan.gavalji@glue42.com>",
+  "license": "Apache-2.0"
+}
